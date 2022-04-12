@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggregate</title>
+</head>
+<body>
+
+    <script type="module">
+
+        /*
+            Aggregating Module
+
+        -   Ada waktunya kadang kita ingin meng aggregate beberapa module menjadi satu agar
+            penggunaannya lebih sederhana
+        -   Aggregate adalah menyatukan beberapa module menjadi satu
+        -   Jika module sudah banyak, maka ketika butuh banyak kode dari banyak module, kita
+            harus sebutkan nama module tersebut tiap kalo import
+        -   Dengan menggunakan aggregate, kita bisa membuat module aggregate, yang isi nya
+            menggabungkan export dari module lain
+        -   Caranya sangat mudah, cukup gunakan perintah:
+            export {namaModule1, namaModule2, namaModule3} from "./module.js"
+        */
+
+        import {Person, sayHello, sayGoodbye, sum, Company} from "./scripts/aggregate.js";
+
+        const person = new Person("Eko");
+        person.sayHello("Joko");
+
+        sayHello("Eko");
+        sayGoodbye("Eko");
+
+        console.info(sum(10, 10));
+
+        const nameCompany = new Company("Programmer Zaman Now");
+        nameCompany.course("JavaScript");
+
+
+        /*  Menggunakan Module Object
+
+        import * as allAggregate from "./scripts/aggregate.js";
+
+        const person = new allAggregate.Person("Eko");
+        person.sayHello("Joko");
+
+        allAggregate.sayHello("Eko");
+        allAggregate.sayGoodbye("Eko");
+
+        console.info(allAggregate.sum(10, 10));
+
+        const nameCompany = new allAggregate.Company("Programmer Zaman Now");
+        nameCompany.course("JavaScript");
+
+        */
+
+
+    </script>
+    
+</body>
+</html>
